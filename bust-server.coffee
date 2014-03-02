@@ -1,7 +1,8 @@
 url = Npm.require 'url'
+myjson = Npm.require('../client/program.json')
 
 hashes = {}
-_.each(__meteor_bootstrap__.bundle.manifest, (resource) ->
+_.each(myjson.manifest, (resource) ->
   if resource.where is 'client'
     hashes[url.parse(resource.url).pathname] = resource.hash
 )
